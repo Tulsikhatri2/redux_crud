@@ -1,12 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+
+
 const crudSlice = createSlice({
     name:"crud",
     initialState:{
         userInfo:[],
-        data:{},
-        form:{name:"", email:"", address:"", phone:""}
     },
+    
 
     reducers:{
         create:(state,action) => {
@@ -15,23 +16,25 @@ const crudSlice = createSlice({
                 userInfo:[...state.userInfo, action.payload]
             }
         },
-
         remove:(state,action) => {
             return{
-                
                 ...state,
                 userInfo: state.userInfo.filter((item) => item.id !== action.payload)
             }
         },
         update:(state,action) => {
-            return{
-                ...state,
-                data: [state.userInfo[action.payload]]
-                
+            const {id,name,email,address,phone} = action.payload
+            const updated = state.userInfo.find(userInfo => userInfo.id == id)
+            if(updated){
+                updated.name = name;
+                updated.email = email;
+                updated.address= address;
+                updated.phone = phone
             }
         }
+        }
     }
-})
+)
 
 export const {create, remove, update } = crudSlice.actions
 export default crudSlice.reducer

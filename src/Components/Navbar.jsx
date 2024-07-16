@@ -24,7 +24,7 @@ const Navbar = () => {
                     <DataObjectIcon/>
                 </IconButton>
 
-                <Link to="/form">
+                <Link to="/">
                 <Button color="inherit" sx={{fontWeight: "550", color:"white"}}>Form</Button>
                 </Link>
 

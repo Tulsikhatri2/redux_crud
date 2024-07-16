@@ -9,7 +9,6 @@ import { useNavigate } from 'react-router-dom'
 
 const Form = () => {
     const [formData, setFormData] = useState({ name: "", email: "", address: "", phone: "" })
-    const [submitUpdate, setSubmitUpdate] = useState(false)
     const dispatch = useDispatch()
     const navigate = useNavigate()
     // console.log(formData)
@@ -19,7 +18,7 @@ const Form = () => {
 
     function handleSubmit(e) {
         e.preventDefault()
-        if(formData.name=="" || formData.email=="" || formData.address=="" || formData.phone==""){
+        if(formData.name==="" || formData.email==="" || formData.address==="" || formData.phone===""){
            alert("All Fields Are Mandatory..!!") 
         }
         else{
@@ -86,30 +85,14 @@ const Form = () => {
                             onChange={handleChange}
                             size="small" />
 
-                        {
-                            !submitUpdate ?
-                                (
-                                    <>
-                                        <Button variant='contained'
-                                            sx={{ mt: 3 }}
-                                            size="large"
-                                            type="submit"
-                                            onClick={handleSubmit}>
-                                            Submit
-                                        </Button>
-                                    </>
-                                ) :
-                                (
-                                    <>
-                                        <Button variant='contained'
-                                            sx={{ mt: 3 }}
-                                            size="large">
-                                            Submit
-                                        </Button>
-                                    </>
-                                )
-                        }
-
+                        <Button variant='contained'
+                            sx={{ mt: 3, fontWeight:550}}
+                            size="large"
+                            type="submit"
+                            onClick={handleSubmit}>
+                            Submit Data
+                            </Button>
+        
                     </FormControl>
                 </Grid>
 

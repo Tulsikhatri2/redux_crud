@@ -26,7 +26,7 @@ const TableData = () => {
       <>
       <Box sx={{height:"90vh",width:"100%",display:"flex", alignItems:"center", justifyContent:"center", flexDirection:"column"}}>
         <Typography variant="h4">Please add some data</Typography>
-       <Link to="/form"> <Button variant="contained" sx={{mt:3, fontWeight:550}}>ADD DATA</Button></Link>
+       <Link to="/"> <Button variant="contained" sx={{mt:3, fontWeight:550}}>ADD DATA</Button></Link>
       </Box>
       </>
     )
@@ -76,9 +76,9 @@ const TableData = () => {
                       <TableCell align="center" sx={{ fontWeight: 400 }}>{user.phone}</TableCell>
 
                       <TableCell align="center" sx={{ fontWeight: 400 }}>
-                        <Button onClick={()=>handleEdit(user.id)}>
+                        <Link to={`/update/${user.id}`}><Button onClick={()=>handleEdit(user.id)}>
                           <Edit />
-                        </Button>
+                        </Button></Link>
                       </TableCell>
 
                       <TableCell align="center" sx={{ fontWeight: 400 }}>
@@ -96,7 +96,7 @@ const TableData = () => {
               
             </Table>
           </TableContainer>
-          <Link to="/form"> <Button variant="contained" sx={{mt:3, fontWeight:550}}>ADD MORE DATA</Button></Link>
+          <Link to="/"> <Button variant="contained" sx={{mt:3, fontWeight:550}}>ADD MORE DATA</Button></Link>
         </Grid>
 
         <Grid item xs={8} md={2}></Grid>
